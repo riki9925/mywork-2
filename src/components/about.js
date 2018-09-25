@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import MediaCard from './card.js';
-import Slick from './slick.js';
 import Header from './header';
 import Footer from './footer';
 import Typography from '@material-ui/core/Typography';

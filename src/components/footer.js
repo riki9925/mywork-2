@@ -54,16 +54,6 @@ const styles = theme => ({
 		padding: `${theme.spacing.unit * 6}px 0`,
 	},
 });
-const footers = [
-	{
-		title: 'Company',
-		description: ['Team', 'History', 'Contact us', 'Locations'],
-	},
-	{
-		title: 'Features',
-		description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
-	},
-];
 
 function Footer(props) {
 	const { classes } = props;
@@ -73,7 +63,6 @@ function Footer(props) {
 			<CssBaseline />
 			<footer className={classNames(classes.footer, classes.layout)}>
 				<Grid container spacing={32} justify="space-evenly">
-					
 					<Grid item xs>
 						<Typography variant="title" color="textPrimary" gutterBottom>
 							Tentang Kami

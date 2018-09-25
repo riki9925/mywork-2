@@ -8,6 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import TextField from '@material-ui/core/TextField';
 
 
 const styles = theme => ({
@@ -72,6 +73,11 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit * 3,
         widht: 200
     },
+    textField: {
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+        width: 200,
+      },
 });
 
 function Header(props) {
@@ -91,18 +97,24 @@ function Header(props) {
                     >
                         PT.Global Mitra Copierindo
 					</Typography>
+                    <TextField
+                        id="standard-with-placeholder"
+                        label="Search Product"
+                        className={classes.textField}
+                        margin="normal"
+                    />
                     <IconButton>
                         <SearchIcon />
                     </IconButton>
                 </Toolbar>
                 <Toolbar variant="dense" className={classes.toolbarSecondary}>
                     <Typography color="inherit" noWrap >
-                       <Link to="/"> <Button color="primary" className={classes.button}>
+                        <Link to="/"> <Button color="primary" className={classes.button}>
                             Home
                     </Button></Link>
                     </Typography>
                     <Typography color="inherit" noWrap >
-                    <Link to="/barang"> <Button color="primary" className={classes.button}>
+                        <Link to="/barang"> <Button color="primary" className={classes.button}>
                             Produk
                     </Button></Link>
                     </Typography>
@@ -112,7 +124,7 @@ function Header(props) {
                     </Button>
                     </Typography>
                     <Typography color="inherit" noWrap >
-                    <Link to="/about"><Button color="primary" className={classes.button} >
+                        <Link to="/about"><Button color="primary" className={classes.button} >
                             Tentang Kami
                     </Button> </Link>
                     </Typography>

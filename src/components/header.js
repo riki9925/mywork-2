@@ -102,9 +102,9 @@ function Header(props) {
                     </Button></Link>
                     </Typography>
                     <Typography color="inherit" noWrap >
-                        <Button color="primary" className={classes.button}>
+                    <Link to="/barang"> <Button color="primary" className={classes.button}>
                             Produk
-                    </Button>
+                    </Button></Link>
                     </Typography>
                     <Typography color="inherit" noWrap >
                         <Button color="primary" className={classes.button}>

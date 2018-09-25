@@ -27,6 +27,7 @@ const styles = theme => ({
     },
     toolbarTitle: {
         flex: 1,
+        paddingLeft:"245px"
     },
     toolbarSecondary: {
         justifyContent: 'space-between',

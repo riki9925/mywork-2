@@ -5,6 +5,7 @@ import MediaCard from './card.js';
 import Header from './header';
 import Footer from './footer';
 import Menubarpro from './menubarpro';
+import Grid from '@material-ui/core/Grid'
 
 const styles = theme => ({
     paper: {
@@ -16,11 +17,11 @@ const styles = theme => ({
     },
     card: {
         paddingLeft: '10px',
-        padding:'20px'
+        padding: '20px'
     },
     menubar: {
-        paddingTop:'20px',
-        padding:'20px'
+        paddingTop: '20px',
+        padding: '20px'
     }
 });
 
@@ -30,8 +31,8 @@ function Barang(props) {
     return (
         <React.Fragment>
             <Header />
-            <Menubarpro className={classes.menubar}/>
             <main>
+                <Menubarpro className={classes.menubar} />
                 <MediaCard className={classes.card} />
             </main>
             <Footer />

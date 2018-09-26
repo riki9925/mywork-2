@@ -6,11 +6,19 @@ import Grid from '@material-ui/core/Grid';
 import Header from './header';
 import Footer from './footer';
 import Typography from '@material-ui/core/Typography';
+import LazyLoad from 'react-lazyload';
 
 const styles = theme => ({
 	paper: {
-		padding: theme.spacing.unit * 10,
+		padding: theme.spacing.unit * 3,
 		textAlign: 'left',
+		color: theme.palette.text.secondary,
+		marginBottom: theme.spacing.unit * 3,
+		widht: 150,
+	},
+	paper2: {
+		padding: theme.spacing.unit * 3,
+		textAlign: 'center',
 		color: theme.palette.text.secondary,
 		marginBottom: theme.spacing.unit * 3,
 		widht: 150,
@@ -27,6 +35,23 @@ function About(props) {
 		<React.Fragment>
 			<Header />
 			<main>
+			<LazyLoad>
+                    <Grid container spacing={24}>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper2}>
+                                <img width="900" height="200" src="https://griyafotocopy.com/wp-content/uploads/2018/07/banner-paket-fotocopy.jpg" alt="" />
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Paper className={classes.paper2}>
+                            <img width="350" height="300" src="https://cdn.fotocopy.co.id/images/Best-Reseller-2017-Mesin-Fotocopy-Canon.jpg" alt="" />
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={8}>
+                            <Paper className={classes.paper2}>xs=6</Paper>
+                        </Grid>
+                    </Grid>
+                </LazyLoad>
 				<Grid container spacing={24}>
 					<Grid item xs={12}>
 						{/* <Paper className={classes.paper}>

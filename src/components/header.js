@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 
 
+
 const styles = theme => ({
     layout: {
         width: 'auto',
@@ -130,9 +131,9 @@ function Header(props) {
                     </Button> </Link>
                     </Typography>
                     <Typography color="inherit" noWrap >
-                        <Button color="primary" className={classes.button}>
+                    <Link to="/howto"> <Button color="primary" className={classes.button}>
                             Cara Beli
-                    </Button>
+                    </Button></Link>
                     </Typography>
                     <Typography color="inherit" noWrap >
                         <Button color="primary" className={classes.button}>

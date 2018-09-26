@@ -7,6 +7,7 @@ import About from './components/about';
 import Barang from './components/barang';
 import Howto from './components/howto';
 import Pembayaran from './components/pembayaran';
+import Detail from './components/detail';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/barang" component={Barang} />
           <Route path="/howto" component={Howto} />
           <Route path="/pembayaran" component={Pembayaran} />
+          <Route path="/detail" component={Detail} />
         </Switch>
       </Router>
     );

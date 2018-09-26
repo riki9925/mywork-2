@@ -11,6 +11,9 @@ const styles = theme => ({
     root: {
         width: '100%',
     },
+    appbar: {
+        height:50,
+    },
     grow: {
         flexGrow: 1,
     },
@@ -71,7 +74,7 @@ function Menubarpro(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" className={classes.appbar} >
                 <Toolbar>
                     <div className={classes.grow} />
                     <div className={classes.search}>

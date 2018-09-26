@@ -26,6 +26,9 @@ const styles = theme => ({
 	card: {
 		paddingLeft: '10px',
 	},
+	toolbarTitle: {
+		flex: 1,
+	},
 });
 
 function About(props) {
@@ -35,23 +38,60 @@ function About(props) {
 		<React.Fragment>
 			<Header />
 			<main>
-			<LazyLoad>
-                    <Grid container spacing={24}>
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper2}>
-                                <img width="900" height="200" src="https://griyafotocopy.com/wp-content/uploads/2018/07/banner-paket-fotocopy.jpg" alt="" />
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Paper className={classes.paper2}>
-                            <img width="350" height="300" src="https://cdn.fotocopy.co.id/images/Best-Reseller-2017-Mesin-Fotocopy-Canon.jpg" alt="" />
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={8}>
-                            <Paper className={classes.paper2}>xs=6</Paper>
-                        </Grid>
-                    </Grid>
-                </LazyLoad>
+				<LazyLoad>
+					<Grid container spacing={24}>
+						<Grid item xs={12}>
+							<Paper className={classes.paper2}>
+								<img
+									width="900"
+									height="200"
+									src="https://griyafotocopy.com/wp-content/uploads/2018/07/banner-paket-fotocopy.jpg"
+									alt=""
+								/>
+							</Paper>
+						</Grid>
+						<Grid item xs={4}>
+							<Paper className={classes.paper2}>
+								<img
+									width="350"
+									height="300"
+									src="https://cdn.fotocopy.co.id/images/Best-Reseller-2017-Mesin-Fotocopy-Canon.jpg"
+									alt=""
+								/>
+							</Paper>
+						</Grid>
+						<Grid item xs={8}>
+							<Paper className={classes.paper}>
+								<Typography
+									variant="headline"
+									color="Black"
+									align="center"
+									noWrap
+									className={classes.toolbarTitle}
+								>
+									PT.Global Mitra Copierindo
+								</Typography>
+								<Typography variant="subheading" paragraph>
+									Distributor Resmin Mesin Fotocopy dengan merk Canon dan Fuji Xerox baik baru maupun
+									rekondisi. Dengan pengalaman lebih dari 10 tahun membantu para pengusaha fotocopy
+									dalam menyediakan mesin fotocopy, sparepart dan toner, juga membantu para pengusaha
+									bidang lain dalam menyediakan jasa Rental Fotocopy untuk kebutuhan dokumentasi dan
+									cetak dokumen. Kami melayani penjualan ke seluruh Indonesia dan melayani rental
+									untuk Jabodetabek dengan dukungan tim Tekhnik kami yang berpengalaman. Area yang
+									sudah kami Cover untuk rental antara lain, Seluruh Jakarta, Tangerang sampai Serang,
+									Bekasi sampai Cikarang, Depok sampai Bogor. Untuk penjualan dalam kota (Jabodetabek)
+									kami berikan garansi 1 Tahun service dengan kontrak yang akan di setujui pada saat
+									pembelian mesin, sedangkan untuk penjualan luar kota/pulau garansi berlaku untuk
+									kota-kota besar seluruh indonesia, jika tidak tercover kita berikan support jarak
+									jauh menggunakan Video, Foto, atau panduan langsung dari Teknisi kami melalui media
+									telephone. Kami juga menyediakan training gratis untuk konsumen kami yang ingin
+									belajar service ringan mesin fotocopy (info lebih lanjut hubungi Marketing Online
+									kami).
+								</Typography>
+							</Paper>
+						</Grid>
+					</Grid>
+				</LazyLoad>
 				<Grid container spacing={24}>
 					<Grid item xs={12}>
 						{/* <Paper className={classes.paper}>

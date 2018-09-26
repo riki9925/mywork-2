@@ -6,6 +6,7 @@ import Album from './components/body.js';
 import About from './components/about';
 import Barang from './components/barang';
 import Howto from './components/howto';
+import Pembayaran from './components/pembayaran';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/barang" component={Barang} />
           <Route path="/howto" component={Howto} />
+          <Route path="/pembayaran" component={Pembayaran} />
         </Switch>
       </Router>
     );

@@ -79,6 +79,9 @@ class MediaCard extends React.Component {
 									<Button size="small" color="primary" variant="outlined" >
 										Nego
 									</Button>
+									<Button size="small" color="primary" variant="outlined" >
+										Detail
+									</Button>
 								</CardActions>
 							</Card>
 						</Grid>

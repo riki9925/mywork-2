@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -19,7 +19,7 @@ const styles = {
 		height: 140,
 	},
 };
-class Cardcontent extends React.Component {
+class Cardcontent extends Component {
 	state = {
 		product: [],
 	};

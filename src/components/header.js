@@ -108,6 +108,9 @@ function Header(props) {
                     <IconButton>
                         <SearchIcon />
                     </IconButton>
+                    <IconButton>
+                       <img widht="30" height="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwPtzZYMXZLlqAfRFJFEz3gjbsG01vyNinxqcZk7reCt2N4Kti9Q" alt="" />
+                    </IconButton>
                 </Toolbar>
                 <Toolbar variant="dense" className={classes.toolbarSecondary}>
                     <Typography color="inherit" noWrap >

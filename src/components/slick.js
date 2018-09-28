@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
 
@@ -14,7 +14,7 @@ const styles = {
 		height: 140,
 	},
 };
-class Slick extends React.Component {
+class Slick extends Component {
 	state = {
 		slider: [],
 	};

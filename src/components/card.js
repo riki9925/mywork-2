@@ -1,7 +1,7 @@
 import React from 'react';
 import List from './list';
 import { connect } from 'react-redux';
-import {getList} from '../redux/actions/product'
+import { getList } from '../redux/actions/product'
 
 class MediaCard extends React.Component {
 

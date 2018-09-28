@@ -78,75 +78,78 @@ class List extends React.Component {
 	render() {
 		const { classes } = this.props;
 		const { open } = this.props;
-
-		const Modal = ({ match }) => (
-			<Dialog
-				open={this.state.open}
-				onClose={this.handleClose}
-				scroll={this.state.scroll}
-				aria-labelledby="scroll-dialog-title"
-			>
-				<DialogTitle id="scroll-dialog-title">Subscribe</DialogTitle>
-				<DialogContent>
-					<Paper className={classes.paper}>
-						<DialogContentText>
-							<Grid container spacing={24}>
-								<Grid item xs={12}>
-									<Paper className={classes.paper}>
-										<img
-											width="250"
-											height="200"
-											src="https://www.fotocopy.co.id/wp-content/uploads/2018/08/canon-ir-c3020-wifi-300x300.jpg"
-											className={classes.img}
-											alt=""
-										/>
-									</Paper>
+		const Child = () => (
+			<div>
+				<Dialog
+					open={this.state.open}
+					onClose={this.handleClose}
+					scroll={this.state.scroll}
+					aria-labelledby="scroll-dialog-title"
+				>
+					<DialogTitle id="scroll-dialog-title">a</DialogTitle>
+					<DialogContent>
+						<Paper className={classes.paper}>
+							<DialogContentText>
+								<Grid container spacing={24}>
+									<Grid item xs={12}>
+										<Paper className={classes.paper}>
+											<img
+												width="250"
+												height="200"
+												src="https://www.fotocopy.co.id/wp-content/uploads/2018/08/canon-ir-c3020-wifi-300x300.jpg"
+												className={classes.img}
+												alt=""
+											/>
+										</Paper>
+									</Grid>
 								</Grid>
-							</Grid>
-						</DialogContentText>
-					</Paper>
-				</DialogContent>
-				<DialogActions>
-					<Button onClick={this.handleClose} color="primary">
-						Cancel
-					</Button>
-					<Button onClick={this.handleClose} color="primary">
-						Subscribe
-					</Button>
-				</DialogActions>
-			</Dialog>
+							</DialogContentText>
+						</Paper>
+					</DialogContent>
+					<DialogActions>
+						<Button onClick={this.handleClose} color="primary">
+							Close
+						</Button>
+					</DialogActions>
+				</Dialog>
+			</div>
 		);
 
 		return (
 			<Grid container spacing={24}>
 				{this.state.product.map(a => (
 					<Grid item xs={6} sm={3}>
-						<Card className={classes.card}>
+						<Card className={classes.card} key={a.id}>
 							<CardMedia className={classes.media}>
 								<img className={classes.image} src={a.Gambar} />
-								<Typography className={classes.pro} key={a.id}>
-									{a.Nama}
-								</Typography>
+								<Typography className={classes.pro}>{a.Nama}</Typography>
 								<Typography gutterBottom component="h1" variant="headline" className={classes.harga}>
 									Rp. {a.Harga}
 								</Typography>
 							</CardMedia>
 							<CardActions className={classes.padding}>
-								<Button size="small" color="primary" variant="outlined">
-									Beli
-								</Button>
-								<Button size="small" color="primary" variant="outlined">
-									Nego
-								</Button>
-								<Button
-									onClick={this.handleClickOpen('paper')}
-									size="small"
-									color="primary"
-									variant="outlined"
-								>
-									Detail
-								</Button>
-                                <Modal />
+								<Router>
+									<div>
+										<Button size="small" color="primary" variant="outlined">
+											Beli
+										</Button>
+										<Button size="small" color="primary" variant="outlined">
+											Nego
+										</Button>
+										<Link to="/:id">
+											<Button
+												onClick={this.handleClickOpen('paper')}
+												size="small"
+												color="primary"
+												variant="outlined"
+											>
+												Detail
+											</Button>
+										</Link>
+										<Child />
+										<Route path="/:id" component={Child} />
+									</div>
+								</Router>
 							</CardActions>
 						</Card>
 					</Grid>

@@ -8,6 +8,7 @@ import Barang from './components/barang';
 import Howto from './components/howto';
 import Pembayaran from './components/pembayaran';
 import Detail from './components/detail';
+import Child from './components/child';
 
 class App extends Component {
 	render() {
@@ -20,7 +21,7 @@ class App extends Component {
 					<Route path="/howto" component={Howto} />
 					<Route path="/pembayaran" component={Pembayaran} />
 					<Route path="/detail" component={Detail} />
-
+					<Route path="/child" component={Child} />
 				</Switch>
 			</Router>
 		);

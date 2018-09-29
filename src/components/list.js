@@ -17,150 +17,178 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 const styles = theme => ({
-	paper: {
-		padding: theme.spacing.unit * 10,
-		textAlign: 'center',
-		color: theme.palette.text.secondary,
-		marginBottom: theme.spacing.unit * 3,
-		widht: 150,
-	},
-	card: {
-		width: 240,
-		paddingLeft: '5px',
-	},
-	harga: {
-		color: '#2d6eef',
+    paper: {
+        padding: theme.spacing.unit * 10,
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+        marginBottom: theme.spacing.unit * 3,
+        widht: 150,
+    },
+    card: {
+        width: 240,
+        paddingLeft: '5px',
+    },
+    harga: {
+        color: '#2d6eef',
+        fontWeight: 'Bold',
+        paddingLeft: '10px',
+    },
+    pro: {
+        fontSize: '15px',
+        fontWeight: 'Bold',
+        paddingLeft: '10px',
+    },
+    padding: {
+        paddingTop: '20px',
+    },
+    image: {
+        height: 200,
+        widht: 200,
+    },
+    media: {
+        height: 240,
+    },
+    root: {
+        flexGrow: 1,
+    },
+    harga: {
+        paddingTop: '10px',
+        color: 'blue',
+        fontWeight: 'Bold',
+    },
+    Deskripsi: {
+		fontSize: '17px',
+		// color: 'blue',
 		fontWeight: 'Bold',
-		paddingLeft: '10px',
 	},
-	pro: {
-		fontSize: '15px',
+	panjang: {
 		fontWeight: 'Bold',
-		paddingLeft: '10px',
-	},
-	padding: {
-		paddingTop: '20px',
-	},
-	image: {
-		height: 200,
-		widht: 200,
-	},
-	media: {
-		height: 240,
-	},
-	root: {
-		flexGrow: 1,
+		borderStyle: 'dotted dashed solid double',
 	},
 });
 
 class List extends React.Component {
-	state = {
-		product: [],
-		open: false,
-		scroll: 'paper',
-	};
+    state = {
+        product: [],
+        open: false,
+        scroll: 'paper',
+    };
 
-	handleClickOpen = scroll => () => {
-		this.setState({ open: true, scroll });
-	};
+    handleClickOpen = scroll => () => {
+        this.setState({ open: true, scroll });
+    };
 
-	handleClose = () => {
-		this.setState({ open: false });
-	};
+    handleClose = () => {
+        this.setState({ open: false });
+    };
 
-	componentDidMount() {
-		axios.get('http://192.168.100.60:9000/global/auth/product1/detail').then(res => {
-			const product = res.data;
-			this.setState({ product });
-		});
-	}
+    componentDidMount() {
+        axios.get('http://192.168.100.60:9000/global/auth/product1/detail').then(res => {
+            const product = res.data;
+            this.setState({ product });
+        });
+    }
 
-	render() {
-		const { classes } = this.props;
-		const { open } = this.props;
-		const Child = () => (
-			<div>
-				<Dialog
-					open={this.state.open}
-					onClose={this.handleClose}
-					scroll={this.state.scroll}
-					aria-labelledby="scroll-dialog-title"
-				>
-					<DialogTitle id="scroll-dialog-title">a</DialogTitle>
-					<DialogContent>
-						<Paper className={classes.paper}>
-							<DialogContentText>
-								<Grid container spacing={24}>
-									<Grid item xs={12}>
-										<Paper className={classes.paper}>
-											<img
-												width="250"
-												height="200"
-												src="https://www.fotocopy.co.id/wp-content/uploads/2018/08/canon-ir-c3020-wifi-300x300.jpg"
-												className={classes.img}
-												alt=""
-											/>
-										</Paper>
-									</Grid>
-								</Grid>
-							</DialogContentText>
-						</Paper>
-					</DialogContent>
-					<DialogActions>
-						<Button onClick={this.handleClose} color="primary">
-							Close
+    render() {
+        const { classes } = this.props;
+        const { open } = this.props;
+
+        const Child = (props,params) => (
+            <div>
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    scroll={this.state.scroll}
+                    aria-labelledby="scroll-dialog-title"
+                    params={props.childId}
+                >
+                    <DialogTitle id={props.childId}>{props.childId}</DialogTitle>
+                    <DialogContent>
+                        <Paper className={classes.paper}>
+                            <DialogContentText>
+                                <Paper className={classes.paper}>
+                                    <img
+                                        width="250"
+                                        height="200"
+                                        src={props.childImg}
+                                        className={classes.img}
+                                        alt=""
+                                    />
+                                    <Typography variant="headline" align="center" noWrap className={classes.harga}>
+                                        Rp.
+											{props.childHarga}
+                                    </Typography>
+                                </Paper>
+                                <Typography variant="headline" align="left" noWrap className={classes.Deskripsi} >
+                                    Deskripsi :
+										</Typography>
+                                <Typography component="p" className={classes.panjang}>
+                                    {props.childDes}
+                                </Typography>
+
+
+                            </DialogContentText>
+                        </Paper>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">
+                            Close
 						</Button>
-					</DialogActions>
-				</Dialog>
-			</div>
-		);
+                    </DialogActions>
+                </Dialog>
+            </div>
+        );
 
-		return (
-			<Grid container spacing={24}>
-				{this.state.product.map(a => (
-					<Grid item xs={6} sm={3}>
-						<Card className={classes.card} key={a.id}>
-							<CardMedia className={classes.media}>
-								<img className={classes.image} src={a.Gambar} />
-								<Typography className={classes.pro}>{a.Nama}</Typography>
-								<Typography gutterBottom component="h1" variant="headline" className={classes.harga}>
-									Rp. {a.Harga}
-								</Typography>
-							</CardMedia>
-							<CardActions className={classes.padding}>
-								<Router>
-									<div>
-										<Button size="small" color="primary" variant="outlined">
-											Beli
+        return (
+            <Grid container spacing={24}>
+                {this.state.product.map((a,params) => (
+                    <Grid item xs={6} sm={3}>
+                        <Card className={classes.card} key={a.id}>
+                            <CardMedia className={classes.media}>
+                                <img className={classes.image} src={a.Gambar} />
+                                <Typography className={classes.pro} nama={a.Nama}>{a.Nama}</Typography>
+                                <Typography gutterBottom component="h1" variant="headline" className={classes.harga}>
+                                    Rp. {a.Harga}
+                                </Typography>
+                            </CardMedia>
+                            <CardActions className={classes.padding}>
+                                {/* <Router> */}
+                                    <div>
+                                        <Button size="small" color="primary" variant="outlined">
+                                            Beli
 										</Button>
-										<Button size="small" color="primary" variant="outlined">
-											Nego
+                                        <Link to="/pembayaran"><Button size="small" color="primary" variant="outlined">
+                                            Nego
 										</Button>
-										<Link to="/:id">
-											<Button
-												onClick={this.handleClickOpen('paper')}
-												size="small"
-												color="primary"
-												variant="outlined"
-											>
-												Detail
+                                        </Link>
+                                        {/* <Link to="/"> */}
+                                        <Button
+                                            onClick={this.handleClickOpen('paper')}
+                                            size="small"
+                                            color="primary"
+                                            variant="outlined"
+                                        >
+                                            Detail
 											</Button>
-										</Link>
-										<Child />
-										<Route path="/:id" component={Child} />
-									</div>
-								</Router>
-							</CardActions>
-						</Card>
-					</Grid>
-				))}
-			</Grid>
-		);
-	}
+                                        {/* </Link> */}
+
+                                        {/* <Route path="/" component={Child} /> */}
+                                    </div>
+                                {/* </Router> */}
+                            </CardActions>
+                        </Card>
+                        <Child childNama={a.Nama} childImg={a.Gambar} childHarga={a.Harga} childDes={a.Deskripsi_lengkap} childId={a.id_product} />
+                    </Grid>
+
+                ))}
+
+            </Grid>
+        );
+    }
 }
 
 List.propTypes = {
-	classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(List);
